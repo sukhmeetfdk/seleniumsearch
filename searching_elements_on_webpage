@@ -1,0 +1,54 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
+
+public class Harinder {
+    public static void main(String[] args){
+
+        //to-do: to be moved to constant file
+        String webDriver = "webdriver.chrome.driver";
+        String pathtoJar="/Users/sukhmeetsingh/Desktop/Selenium jar and drivers/Chromedrivers/chromedriver";
+        String addressUrl ="https://google.com";
+        String selenium = "selenium";
+        String tagName="a";
+        xpathSrch = "//input[@title='Search']";
+        xpathgoogleSearch = "//div[@class='FPdoLc lJ9FBc']//input[@name='btnK']";
+
+
+        System.setProperty(webDriver,pathtoJar );
+
+        //opening chrome
+        WebDriver driver = new ChromeDriver();
+
+        //opening google
+        driver.get(addressUrl);
+
+        //searching selenium
+        driver.findElement(By.xpath(xpathSrch)).sendKeys(selenium);
+
+        //clicking
+        driver.findElement(By.xpath(xpathgoogleSearch)).click();
+
+        //links
+      List<WebElement> links= driver.findElements(By.tagName(tagName));
+        System.out.println("The total number of links are " + links.size());
+
+        for (WebElement linkText : links){
+            System.out.println("The links are "+linkText.getText());
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
